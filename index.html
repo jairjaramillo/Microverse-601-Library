@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="col-md-4 offset-md-4">
-      <form id="frm1" action="js/main.js">
+
+      <form id="frm1" action="" method="get">
         <div class="form-group">
           <label for="InputTitle">Title</label>
           <input type="text" class="form-control" id="InputTitle" placeholder="Enter Title of Book">
@@ -24,8 +26,9 @@
           <label for="InputPages">Number of Pages</label>
           <input type="text" class="form-control" id="InputPages" placeholder="Number of Pages">
         </div>
-        <button type="submit" class="btn btn-primary">Add New Book</button>
+        <button type="submit" class="btn btn-primary" value="Click" onClick="render(this.form)">Add New Book</button>
       </form>
+
     </div>
   </div>
   <script src="js/jquery-3.4.1.slim.min.js"></script>
