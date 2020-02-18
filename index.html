@@ -7,30 +7,32 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js"></script>
+
 </head>
 <body>
   <div class="container">
     <div class="col-md-4 offset-md-4">
 
-      <form id="frm1" action="" method="get">
+      <form id="bookform">
         <div class="form-group">
           <label for="InputTitle">Title</label>
-          <input type="text" class="form-control" id="InputTitle" placeholder="Enter Title of Book">
+          <input type="text" class="form-control" id="inputTitle" placeholder="Enter Title of Book">
         </div>
         <div class="form-group">
           <label for="InputAuthor">Author</label>
-          <input type="text" class="form-control" id="InputAuthor" placeholder="Enter Author of Book">
+          <input type="text" class="form-control" id="inputAuthor" placeholder="Enter Author of Book">
         </div>
         <div class="form-group">
           <label for="InputPages">Number of Pages</label>
-          <input type="text" class="form-control" id="InputPages" placeholder="Number of Pages">
+          <input type="text" class="form-control" id="inputPages" placeholder="Number of Pages">
         </div>
-        <button type="submit" class="btn btn-primary" value="Click" onClick="render(this.form)">Add New Book</button>
+        <button type="submit" class="btn btn-primary" id = "AddBookBtn">Add New Book</button>
       </form>
 
+      <p id="demo"></p>
     </div>
   </div>
+  <script src="js/main.js"></script>
   <script src="js/jquery-3.4.1.slim.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
 </body>

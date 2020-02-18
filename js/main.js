@@ -5,24 +5,16 @@ function Book(title, author, pages) {
   this.author = author;
   this.pages = pages;
   this.isRead = false;
-  this.status = function () {
-    if (this.isRead === true) {
-      return 'Read';
-    }
-    return 'Not Read';
-  };
-  this.info = function () {
-    return `${title} ,${author} ,${pages}pages${this.status()}`;
-  };
 }
 
-function addBookToLibrary(title, author, pages) {
+function addBookToLibrary() {
+  const title = document.getElementById('inputTitle').value;
+  const author = document.getElementById('inputAuthor').value;
+  const pages = document.getElementById('inputPages').value;
   const book = new Book(title, author, pages);
   myLibrary.push(book);
+  console.log(myLibrary);
 }
 
-function render(form) {
-  const bookstr = form.inputbox.value;
-  document.write(`the book is ${bookstr}`);
-  document.write(`ets`);
-}
+const addNewBook = document.getElementById('AddBookBtn');
+addNewBook.addEventListener('click', addBookToLibrary);
