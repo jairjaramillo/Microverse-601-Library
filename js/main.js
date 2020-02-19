@@ -1,5 +1,7 @@
+/* eslint-disable no-console */
 const myLibrary = [];
 
+// eslint-disable-next-line no-unused-vars
 function Show() {
   document.getElementById('bookform').style.visibility = 'visible';
 }
@@ -15,13 +17,13 @@ function render(myArr) {
   const list = document.getElementById('book-list');
   const row = document.createElement('tr');
 
-  console.log(myArr);
+  // console.log(myArr);
   for (let i = 0; i < myArr.length; i += 1) {
     row.innerHTML = `<td>${myArr[i].title}</td>
                       <td>${myArr[i].author}</td>
                       <td>${myArr[i].pages}</td>
                       <td>${myArr[i].status}</td>
-                      <td><button class="btn btn-danger" >Delete</button></td>`;
+                      <td><button class="btn btn-danger" id="delBtn-${i}" onclick="del(${i})">Delete</button></td>`;
     list.appendChild(row);
   }
 }
@@ -48,6 +50,13 @@ function addBookToLibrary(e) {
   document.querySelector('form').style.visibility = 'hidden';
 }
 
+// eslint-disable-next-line no-unused-vars
+function del(number) {
+  const delItem = myLibrary.splice(number, 1);
+  console.log(number);
+  console.log(delItem);
+  render(myLibrary);
+}
 
 document.getElementById('bookform').addEventListener('submit', (e) => {
   addBookToLibrary(e);
