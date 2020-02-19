@@ -26,6 +26,7 @@ function render(myArr) {
   const list = document.getElementById('book-list');
   const row = document.createElement('tr');
 
+  // list.innerHTML = '';
   // console.log(myArr);
   for (let i = 0; i < myArr.length; i += 1) {
     row.innerHTML = `<td>${myArr[i].title}</td>
