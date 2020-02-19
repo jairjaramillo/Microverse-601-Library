@@ -1,6 +1,15 @@
 /* eslint-disable no-console */
 const myLibrary = [];
 
+if (typeof (Storage) !== 'undefined') {
+  if (!sessionStorage.library) {
+    sessionStorage.library = JSON.stringify(myLibrary);
+  }
+} else {
+  // eslint-disable-next-line no-alert
+  alert('No storage permitted');
+}
+
 // eslint-disable-next-line no-unused-vars
 function Show() {
   document.getElementById('bookform').style.visibility = 'visible';
@@ -44,20 +53,26 @@ function addBookToLibrary(e) {
 
   const newBook = new Book(title, author, pages, status);
 
-  myLibrary.push(newBook);
-  render(myLibrary);
+  const temLibrary = JSON.parse(sessionStorage.library);
+  temLibrary.push(newBook);
+  render(temLibrary);
+  sessionStorage.library = JSON.stringify(temLibrary);
   document.querySelector('form').reset();
   document.querySelector('form').style.visibility = 'hidden';
 }
 
 // eslint-disable-next-line no-unused-vars
 function del(number) {
-  const delItem = myLibrary.splice(number, 1);
+  const temLibrary = JSON.parse(sessionStorage.library);
+  const delItem = temLibrary.splice(number, 1);
+  sessionStorage.library = JSON.stringify(temLibrary);
   console.log(number);
   console.log(delItem);
-  render(myLibrary);
+  render(temLibrary);
 }
 
 document.getElementById('bookform').addEventListener('submit', (e) => {
   addBookToLibrary(e);
 });
+
+render(JSON.parse(sessionStorage.library));
