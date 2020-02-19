@@ -44,6 +44,7 @@ function addBookToLibrary(e) {
   myLibrary.push(newBook);
   render(myLibrary);
   document.querySelector('form').reset();
+  document.querySelector('form').style.visibility = 'hidden';
 }
 
 
