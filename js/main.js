@@ -20,7 +20,8 @@ function render(myArr) {
     row.innerHTML = `<td>${myArr[i].title}</td>
                       <td>${myArr[i].author}</td>
                       <td>${myArr[i].pages}</td>
-                      <td>${myArr[i].status}</td>`;
+                      <td>${myArr[i].status}</td>
+                      <td><button class="btn btn-danger" >Delete</button></td>`;
     list.appendChild(row);
   }
 }
