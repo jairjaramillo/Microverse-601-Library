@@ -23,19 +23,23 @@ function Book(title, author, pages, status) {
 }
 
 function render(myArr) {
-  const list = document.getElementById('book-list');
-  const row = document.createElement('tr');
-
-  // list.innerHTML = '';
-  // console.log(myArr);
+  const table = document.getElementById('book-list');
   for (let i = 0; i < myArr.length; i += 1) {
-    row.innerHTML = `<td>${myArr[i].title}</td>
-                      <td>${myArr[i].author}</td>
-                      <td>${myArr[i].pages}</td>
-                      <td>${myArr[i].status}</td>
-                      <td><button class="btn btn-danger" id="delBtn-${i}" onclick="del(${i})">Delete</button></td>`;
-    list.appendChild(row);
+    const rw = table.insertRow(0);
+    const cl1 = rw.insertCell(0);
+    const cl2 = rw.insertCell(1);
+    const cl3 = rw.insertCell(2);
+    const cl4 = rw.insertCell(3);
+    const cl5 = rw.insertCell(4);
+    cl1.innerHTML = `${myArr[i].title}`;
+    cl2.innerHTML = `${myArr[i].author}`;
+    cl3.innerHTML = `${myArr[i].pages}`;
+    cl4.innerHTML = `${myArr[i].status}`;
+    cl5.innerHTML = `<button class="btn btn-danger" id="delBtn-${i}" onclick="del(${i})">Delete</button>`;
   }
+  // for (let i = 0; i < myArr.length; i += 1) {
+  //   console.log(myArr[i]);
+  // }
 }
 
 function addBookToLibrary(e) {
@@ -56,8 +60,9 @@ function addBookToLibrary(e) {
 
   const temLibrary = JSON.parse(sessionStorage.library);
   temLibrary.push(newBook);
-  render(temLibrary);
   sessionStorage.library = JSON.stringify(temLibrary);
+  window.location.reload(false);
+  render(temLibrary);
   document.querySelector('form').reset();
   document.querySelector('form').style.visibility = 'hidden';
 }
@@ -65,10 +70,9 @@ function addBookToLibrary(e) {
 // eslint-disable-next-line no-unused-vars
 function del(number) {
   const temLibrary = JSON.parse(sessionStorage.library);
-  const delItem = temLibrary.splice(number, 1);
+  temLibrary.splice(number, 1);
   sessionStorage.library = JSON.stringify(temLibrary);
-  console.log(number);
-  console.log(delItem);
+  window.location.reload(false);
   render(temLibrary);
 }
 
@@ -76,4 +80,5 @@ document.getElementById('bookform').addEventListener('submit', (e) => {
   addBookToLibrary(e);
 });
 
-render(JSON.parse(sessionStorage.library));
+const tempLibrary = JSON.parse(sessionStorage.library);
+render(tempLibrary);
