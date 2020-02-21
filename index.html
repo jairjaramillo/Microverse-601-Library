@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microverse 601: Library</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <div class="container">
+      <div class="showBooks">
+        <h1>Books Added</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="book-list"></tbody>
+        </table>
+      </div>
+      <div class="">
+        <input type = "button" onclick = "Show();" class="btn btn-secondary" value = "Add New Book" />
+      </div>
+      <div class="col-md-4 offset-md-4 table-form">
+        <form id="bookform">
+          <div class="form-group">
+            <label for="InputTitle">Title</label>
+            <input type="text" class="form-control" id="inputTitle" placeholder="Enter Title of Book" required>
+          </div>
+          <div class="form-group">
+            <label for="InputAuthor">Author</label>
+            <input type="text" class="form-control" id="inputAuthor" placeholder="Enter Author of Book" required>
+          </div>
+          <div class="form-group">
+            <label for="InputPages">Number of Pages</label>
+            <input type="number" class="form-control" id="inputPages" placeholder="Number of Pages" required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="inputStatus">
+            <label class="form-check-label" for="exampleCheck1">I have read the book</label>
+          </div>
+          <button type="submit" class="btn btn-primary" id = "AddBookBtn">Submit New Book</button>
+        </form>
+      </div>
+    </div>
+  <script src="js/main.js"></script>
+  <script src="js/jquery-3.4.1.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
